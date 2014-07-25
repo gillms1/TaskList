@@ -7,13 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSGTaskModel.h"
+
+@protocol MSGEditTaskViewControllerDelegate <NSObject>
+
+-(void)saveTask;
+
+@end
 
 @interface MSGEditTaskViewController : UIViewController
+
+@property (weak, nonatomic) id <MSGEditTaskViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
 @property (strong, nonatomic) IBOutlet UITextView *taskDetailTextView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *taskDatePicker;
 
+@property (strong, nonatomic) MSGTaskModel *task;
 
 - (IBAction)saveButtonPressed:(UIBarButtonItem *)sender;
 @end

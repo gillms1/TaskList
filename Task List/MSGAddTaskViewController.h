@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSGTaskModel.h"
 
 @protocol MSGAddTaskViewControllerDelegate <NSObject>
 
 -(void)didCancel;
--(void)didAddTask;
+-(void)didAddTask:(MSGTaskModel *)task;
 
 @end
 
-@interface MSGAddTaskViewController : UIViewController
+@interface MSGAddTaskViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) id <MSGAddTaskViewControllerDelegate> delegate;
 

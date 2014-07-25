@@ -7,12 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSGTaskModel.h"
+#import "MSGEditTaskViewController.h"
 
-@interface MSGDetailTaskViewController : UIViewController
+@protocol MSGDetailTaskViewControllerDelegate <NSObject>
+
+-(void)updateTaskFromEdit;
+
+@end
+
+@interface MSGDetailTaskViewController : UIViewController <MSGEditTaskViewControllerDelegate>
+
+@property (weak, nonatomic) id <MSGDetailTaskViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UILabel *taskTitleLabel1;
 @property (strong, nonatomic) IBOutlet UILabel *taskDateLabel2;
 @property (strong, nonatomic) IBOutlet UILabel *taskDetailLabel3;
+
+@property (strong, nonatomic) MSGTaskModel *task;
 
 - (IBAction)editButtonPressed:(UIBarButtonItem *)sender;
 @end

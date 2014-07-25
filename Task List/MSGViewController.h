@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MSGAddTaskViewController.h"
+#import "MSGDetailTaskViewController.h"
 
-@interface MSGViewController : UIViewController <MSGAddTaskViewControllerDelegate>
+@interface MSGViewController : UIViewController <MSGAddTaskViewControllerDelegate, MSGDetailTaskViewControllerDelegate,UITableViewDataSource, UITableViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *mainViewTableView;
